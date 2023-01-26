@@ -39,16 +39,15 @@ export class TasksService {
   removeTask(id: string): void {
     const taskIndex = this.tasks.findIndex((task) => task.id === id);
 
-    if (!taskIndex) {
+    if (taskIndex < 0) {
       throw new NotFoundException('Task was not found');
     }
 
     this.tasks.splice(taskIndex, 1);
   }
-  updateTaskStatus(id, status): void {
+  updateTaskStatus(id: string, status): void {
     const taskIndex = this.tasks.findIndex((task) => task.id === id);
-
-    if (!taskIndex) {
+    if (taskIndex < 0) {
       throw new NotFoundException('Task was not found');
     }
 
