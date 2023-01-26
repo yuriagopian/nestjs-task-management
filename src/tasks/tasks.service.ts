@@ -41,7 +41,7 @@ export class TasksService {
     const foundTask = !!task;
 
     if (!foundTask) {
-      throw new NotFoundException('Task was not found');
+      throw new NotFoundException(`Task with ${id} was not found`);
     }
 
     return task;
