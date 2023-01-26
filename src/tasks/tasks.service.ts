@@ -36,7 +36,7 @@ export class TasksService {
     return task;
   }
 
-  removeTask(id: string) {
+  removeTask(id: string): void {
     const taskIndex = this.tasks.findIndex((task) => task.id === id);
 
     if (!taskIndex) {
@@ -44,5 +44,14 @@ export class TasksService {
     }
 
     this.tasks.splice(taskIndex, 1);
+  }
+  updateTaskStatus(id, status): void {
+    const taskIndex = this.tasks.findIndex((task) => task.id === id);
+
+    if (!taskIndex) {
+      throw new NotFoundException('Task was not found');
+    }
+
+    this.tasks[taskIndex].status = status;
   }
 }
