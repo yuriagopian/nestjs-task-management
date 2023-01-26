@@ -76,7 +76,7 @@ export class TasksService {
     // return task
     const taskIndex = this.tasks.findIndex((task) => task.id === id);
     if (taskIndex < 0) {
-      throw new NotFoundException('Task was not found');
+      throw new NotFoundException(`Task with ${id} was not found`);
     }
 
     this.tasks[taskIndex].status = status;
