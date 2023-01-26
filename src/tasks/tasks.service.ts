@@ -4,7 +4,8 @@ import { Tasks } from './tasks.model';
 @Injectable()
 export class TasksService {
   private tasks: Tasks[] = [];
-  getAllTasks() {
+
+  getAllTasks(): Tasks[] {
     return this.tasks;
   }
 }
