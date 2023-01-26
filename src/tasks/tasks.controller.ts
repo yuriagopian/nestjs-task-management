@@ -50,8 +50,9 @@ export class TasksController {
   @Patch('/:id/status')
   removeTask(
     @Param('id') id: string,
-    @Body('status') status: UpdateTaskStatus,
+    @Body('status') updateTaskStatusDto: UpdateTaskStatus,
   ): Task {
+    const { status } = updateTaskStatusDto;
     return this.tasksService.updateTaskStatus(id, status);
   }
 }
