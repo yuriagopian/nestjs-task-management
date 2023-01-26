@@ -45,12 +45,16 @@ export class TasksService {
 
     this.tasks.splice(taskIndex, 1);
   }
-  updateTaskStatus(id: string, status): void {
+  updateTaskStatus(id: string, status: TaskStatus): Task {
+    // const task = this.getTaskById(id)
+    // task.status = status
+    // return task
     const taskIndex = this.tasks.findIndex((task) => task.id === id);
     if (taskIndex < 0) {
       throw new NotFoundException('Task was not found');
     }
 
     this.tasks[taskIndex].status = status;
+    return this.tasks[taskIndex];
   }
 }
