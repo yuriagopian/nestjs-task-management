@@ -35,4 +35,14 @@ export class TasksService {
 
     return task;
   }
+
+  removeTask(id: string) {
+    const taskIndex = this.tasks.findIndex((task) => task.id === id);
+
+    if (!taskIndex) {
+      throw new NotFoundException('Task was not found');
+    }
+
+    this.tasks.pop(taskIndex);
+  }
 }
