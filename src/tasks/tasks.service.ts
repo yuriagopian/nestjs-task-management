@@ -43,6 +43,6 @@ export class TasksService {
       throw new NotFoundException('Task was not found');
     }
 
-    this.tasks.pop(taskIndex);
+    this.tasks.splice(taskIndex, 1);
   }
 }
