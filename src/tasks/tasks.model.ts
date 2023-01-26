@@ -1,1 +1,1 @@
-export class TasksModel {}
+export interface Tasks {}
