@@ -1,6 +1,7 @@
-import { Entity } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Task {
-  id:  string
+  @PrimaryGeneratedColumn()
+  id: string;
 }
