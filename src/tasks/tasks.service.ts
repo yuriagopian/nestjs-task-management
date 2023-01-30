@@ -55,17 +55,17 @@ export class TasksService {
   //   }
   //   return task;
   // }
-  // createTask(createTaskDto: CreateTaskReqDto): Task {
-  //   const { title, description } = createTaskDto;
-  //   const task: Task = {
-  //     id: uuid(),
-  //     title,
-  //     description,
-  //     status: TaskStatus.OPEN,
-  //   };
-  //   this.tasks.push(task);
-  //   return task;
-  // }
+  async createTask(createTaskDto: CreateTaskReqDto): Promise<Task> {
+    const { title, description } = createTaskDto;
+    const task = this.tasksRepository.create({
+      title,
+      description,
+      status: TaskStatus.OPEN,
+    });
+
+    await this.tasksRepository.save(task);
+    return task;
+  }
   // removeTask(id: string): void {
   //   const taskIndex = this.tasks.findIndex((task) => task.id === id);
   //   if (taskIndex < 0) {
