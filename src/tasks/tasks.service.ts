@@ -3,10 +3,15 @@ import { TaskStatus } from './task-status.enum';
 
 import { CreateTaskReqDto } from './dto/create-task.dto';
 import { GetTasksFilterDto } from './dto/get-task-filter.dto';
+import { TasksRepository } from './tasks.repository';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class TasksService {
-  // private tasks: Task[] = [];
+  constructor(
+    @InjectRepository(TasksRepository)
+    private tasksRepository: TasksRepository,
+  ) {} // private tasks: Task[] = [];
   // getAllTasks(): Task[] {
   //   return this.tasks;
   // }
