@@ -14,26 +14,10 @@ export class TasksService {
     private tasksRepository: TaskRepository,
   ) {}
 
-  // private tasks: Task[] = [];
   // getAllTasks(): Task[] {
   //   return this.tasks;
   // }
-  // getTasksWithFilters(filterDto: GetTasksFilterDto): Task[] {
-  //   const { search, status } = filterDto;
-  //   let tasks = this.getAllTasks();
-  //   if (status) {
-  //     tasks = tasks.filter((task) => task.status === status);
-  //   }
-  //   if (search) {
-  //     tasks = tasks.filter((task) => {
-  //       if (task.title.includes(search) || task.description.includes(search)) {
-  //         return true;
-  //       }
-  //       return false;
-  //     });
-  //   }
-  //   return tasks;
-  // }
+  getTasksWithFilters(filterDto: GetTasksFilterDto): Promise<Task[]> {}
 
   async getTaskById(id: string): Promise<Task> {
     const task = this.tasksRepository.findOne({
