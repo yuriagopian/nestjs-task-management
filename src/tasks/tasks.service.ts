@@ -14,10 +14,12 @@ export class TasksService {
     private tasksRepository: TaskRepository,
   ) {}
 
-  // getAllTasks(): Task[] {
-  //   return this.tasks;
-  // }
-  getTasksWithFilters(filterDto: GetTasksFilterDto): Promise<Task[]> {}
+  getAllTasks(): Task[] {
+    return;
+  }
+  getTasksWithFilters(filterDto: GetTasksFilterDto): Promise<Task[]> {
+    return this.tasksRepository.getTasks(filterDto);
+  }
 
   async getTaskById(id: string): Promise<Task> {
     const task = this.tasksRepository.findOne({
