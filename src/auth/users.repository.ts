@@ -11,5 +11,9 @@ export class UsersRepository extends Repository<User> {
 
   async createUser(authCredentialsDto: AuthCredentialsDto): Promise<void> {
     const { password, username } = authCredentialsDto;
+
+    const user = this.create({ username, password });
+
+    await this.save(user);
   }
 }
