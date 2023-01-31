@@ -56,15 +56,7 @@ export class TasksService {
   //   return task;
   // }
   async createTask(createTaskDto: CreateTaskReqDto): Promise<Task> {
-    const { title, description } = createTaskDto;
-    const task = this.tasksRepository.create({
-      title,
-      description,
-      status: TaskStatus.OPEN,
-    });
-
-    await this.tasksRepository.save(task);
-    return task;
+    return this.tasksRepository.createTask(createTaskDto);
   }
   // removeTask(id: string): void {
   //   const taskIndex = this.tasks.findIndex((task) => task.id === id);
