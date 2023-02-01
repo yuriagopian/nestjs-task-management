@@ -40,6 +40,7 @@ export class TaskRepository extends Repository<Task> {
       title,
       description,
       status: TaskStatus.OPEN,
+      user,
     });
 
     await this.save(task);
