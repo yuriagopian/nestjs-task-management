@@ -22,10 +22,11 @@ export class TasksService {
     return this.tasksRepository.getTasks(filterDto, user);
   }
 
-  async getTaskById(id: string): Promise<Task> {
+  async getTaskById(id: string, user: User): Promise<Task> {
     const task = this.tasksRepository.findOne({
       where: {
         id,
+        user,
       },
     });
     const foundTask = !!task;
