@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { createQueryBuilder, DataSource, Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { CreateTaskReqDto } from './dto/create-task.dto';
 import { GetTasksFilterDto } from './dto/get-task-filter.dto';
 import { TaskStatus } from './task-status.enum';
@@ -13,7 +13,6 @@ export class TaskRepository extends Repository<Task> {
 
   async getTasks(filterDto: GetTasksFilterDto): Promise<Task[]> {
     const { search, status } = filterDto;
-    console.log(filterDto, search, status);
 
     const query = this.createQueryBuilder('task');
 
