@@ -14,9 +14,6 @@ export class TasksService {
     private tasksRepository: TaskRepository,
   ) {}
 
-  getAllTasks(): Task[] {
-    return;
-  }
   getTasksWithFilters(filterDto: GetTasksFilterDto): Promise<Task[]> {
     return this.tasksRepository.getTasks(filterDto);
   }
