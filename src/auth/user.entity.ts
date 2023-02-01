@@ -1,3 +1,4 @@
+import { Task } from 'src/tasks/task.entity';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -12,4 +13,6 @@ export class User {
 
   @Column()
   password: string;
+
+  tasks: Task[];
 }
