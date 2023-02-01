@@ -24,6 +24,8 @@ export class AuthCredentialsDto {
     There is no length validation (min, max) in this regex!
     Regular expression for JavaScript:
   */
-  @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/)
+  @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
+    message: 'Password is too Weak',
+  })
   password: string;
 }
