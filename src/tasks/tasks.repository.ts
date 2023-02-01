@@ -39,7 +39,10 @@ export class TaskRepository extends Repository<Task> {
       const tasks = await query.getMany();
       return tasks;
     } catch (error) {
-      this.logger.error(`Error trying to get tasks`);
+      this.logger.error(
+        `Error trying to get tasks to user ${user.username}`,
+        error.stack,
+      );
       throw new InternalServerErrorException();
     }
   }
