@@ -20,6 +20,7 @@ describe('Tasks services', () => {
       ],
     }).compile();
 
-    tasksService = await module.get<TasksService>(TasksService);
+    tasksService = await module.get(TasksService);
+    taskRepository = module.get(TaskRepository);
   });
 });
