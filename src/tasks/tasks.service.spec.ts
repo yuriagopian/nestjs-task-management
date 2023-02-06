@@ -5,6 +5,13 @@ import { TasksService } from './tasks.service';
 const mockTasksRepository = () => ({
   getTasks: jest.fn(),
 });
+
+const mockUser = {
+  username: 'João',
+  id: 'someId',
+  password: 'somePassword',
+  tasks: [],
+};
 describe('Tasks services', () => {
   let tasksService: TasksService;
   let taskRepository: TaskRepository;
@@ -27,6 +34,11 @@ describe('Tasks services', () => {
   });
 
   describe('getTasks', () => {
-    it('calls TasksRepository.getTasks anda returns the results', () => {});
+    it('calls TasksRepository.getTasks anda returns the results', () => {
+      expect(taskRepository.getTasks).not.toHaveBeenCalled();
+
+      tasksService.getTasksWithFilters(null, mockUser);
+      expect(taskRepository.getTasks).toHaveBeenCalled();
+    });
   });
 });
