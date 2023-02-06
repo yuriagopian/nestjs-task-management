@@ -23,7 +23,7 @@ export class TasksService {
   }
 
   async getTaskById(id: string, user: User): Promise<Task> {
-    const task = this.tasksRepository.findOne({
+    const task = await this.tasksRepository.findOne({
       where: {
         id,
         user,
